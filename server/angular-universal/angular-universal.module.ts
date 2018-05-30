@@ -11,7 +11,6 @@ import {
 import { DynamicModule, NestModule } from '@nestjs/common/interfaces';
 import { readFileSync } from 'fs';
 
-// import { applyDomino } from './utils/domino.utils';
 import { AngularUniversalOptions } from './interfaces/angular-universal-options.interface';
 import { ANGULAR_UNIVERSAL_OPTIONS } from './angular-universal.constants';
 import { AngularUniversalController } from './angular-universal.controller';

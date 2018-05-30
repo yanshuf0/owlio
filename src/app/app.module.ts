@@ -4,13 +4,25 @@ import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule } from '@angular/material';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'owlio' })
+    // third-party modules:
+    BrowserModule.withServerTransition({ appId: 'owlio' }),
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    // in-house modules:
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -23,4 +35,4 @@ export class AppModule {
       'in the browser' : 'on the server';
     console.log(`Running ${platform} with appId=${appId}`);
   }
- }
+}
