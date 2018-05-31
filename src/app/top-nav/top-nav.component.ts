@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -11,7 +11,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         transform: 'translateX(0)',
       })),
       state('active',   style({
-        transform: 'translateX(-20rem)',
+        transform: 'translateX(-11.5rem)',
       })),
       transition('inactive => active', animate('700ms ease-in')),
       transition('active => inactive', animate('700ms ease-out'))
@@ -19,7 +19,10 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   ]
 })
 export class TopNavComponent implements OnInit {
+  showSearchGlass: boolean;
   mState = 'inactive';
+  @ViewChild('searchInput')
+  searchInput: ElementRef;
 
   constructor() { }
 
@@ -27,7 +30,15 @@ export class TopNavComponent implements OnInit {
   }
 
   toggleMenu() {
-    this.mState = this.mState === 'active' ? 'inactive' : 'active';
+    console.log('Toggle');
+    this.mState = (this.mState === 'active') ? 'inactive' : 'active';
+    setTimeout(() => this.searchInput.nativeElement.focus(), 700);
+    setTimeout(() => {
+      if (this.mState === 'active') {
+        this.showSearchGlass = true;
+      } else {
+        this.showSearchGlass = false;
+      }
+    }, 500);
   }
-
 }

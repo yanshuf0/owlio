@@ -17,7 +17,7 @@ import { TopNavComponent } from './top-nav/top-nav.component';
   declarations: [
     AppComponent,
     DashboardComponent,
-    TopNavComponent
+    TopNavComponent,
   ],
   imports: [
     // third-party modules:

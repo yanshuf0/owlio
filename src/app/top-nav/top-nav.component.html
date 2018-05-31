@@ -1,10 +1,16 @@
 <mat-toolbar color="primary" class="fixed-navbar">
-  <span>owlio.io</span>
+  <span>owlio.io<mat-icon>rowing</mat-icon></span>
 
   <!-- This fills the remaining space of the current row -->
   <span class="filler"></span>
 
   <span>
-    <mat-icon class="icon-button" [@menuState]="mState" (click)="toggleMenu()">trip_origin</mat-icon>
+    <mat-icon class="icon-button" [@menuState]="mState" (click)="toggleMenu()">{{showSearchGlass ? 'search' : 'trip_origin'}}</mat-icon>
+  </span>
+  <span *ngIf="mState === 'active'" class="nav-search">
+    <mat-form-field>
+      <input #searchInput id="searchInput" (blur)="toggleMenu()" matInput type="text">
+    </mat-form-field>
   </span>
 </mat-toolbar>
+<span matPrefix>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
