@@ -10,7 +10,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       state('inactive', style({
         transform: 'translateX(0)',
       })),
-      state('active',   style({
+      state('active', style({
         transform: 'translateX(-11.5rem)',
       })),
       transition('inactive => active', animate('700ms ease-in')),
