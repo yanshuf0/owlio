@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { InteractionDialogComponent } from '../interaction-dialog/interaction-dialog.component';
 
 @Component({
   selector: 'app-top-nav',
@@ -19,12 +21,13 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   ]
 })
 export class TopNavComponent implements OnInit {
+  dialogRef: MatDialogRef<InteractionDialogComponent>;
   showSearchGlass: boolean;
   mState = 'inactive';
   @ViewChild('searchInput')
   searchInput: ElementRef;
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -42,5 +45,9 @@ export class TopNavComponent implements OnInit {
         this.showSearchGlass = false;
       }
     }, 500);
+  }
+
+  openInteractionDialog() {
+    this.dialogRef = this.dialog.open(InteractionDialogComponent);
   }
 }

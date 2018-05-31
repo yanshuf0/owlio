@@ -29,6 +29,7 @@
     "@nguniversal/express-engine": "^6.0.0",
     "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
     "core-js": "^2.5.4",
+    "ngx-infinite-scroll": "^6.0.0",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.2.0",
     "ts-loader": "^4.3.0",

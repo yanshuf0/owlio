@@ -1,4 +1,8 @@
-<div class="grid-container">
+<div class="grid-container" infinite-scroll
+[infiniteScrollDistance]="scrollDistance"
+[infiniteScrollThrottle]="throttle"
+[scrollWindow]="true"
+(scrolled)="onScrollDown()">
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card">
@@ -10,7 +14,7 @@
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
               <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
+              <button mat-menu-item>Subscribe</button>
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
