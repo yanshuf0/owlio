@@ -30,9 +30,11 @@ export class TopNavComponent implements OnInit {
   }
 
   toggleMenu() {
-    console.log('Toggle');
     this.mState = (this.mState === 'active') ? 'inactive' : 'active';
-    setTimeout(() => this.searchInput.nativeElement.focus(), 700);
+    if (this.mState === 'active') {
+      setTimeout(() => this.searchInput.nativeElement.focus(), 700);
+    }
+
     setTimeout(() => {
       if (this.mState === 'active') {
         this.showSearchGlass = true;
