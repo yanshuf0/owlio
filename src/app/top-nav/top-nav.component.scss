@@ -1,0 +1,15 @@
+.filler {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.icon-button {
+  cursor: pointer;
+}

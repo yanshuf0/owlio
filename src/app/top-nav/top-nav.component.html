@@ -1,0 +1,10 @@
+<mat-toolbar color="primary" class="fixed-navbar">
+  <span>owlio.io</span>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="filler"></span>
+
+  <span>
+    <mat-icon class="icon-button" [@menuState]="mState" (click)="toggleMenu()">trip_origin</mat-icon>
+  </span>
+</mat-toolbar>
