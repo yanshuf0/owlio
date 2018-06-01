@@ -13,6 +13,7 @@ import {
   MatCardModule,
   MatMenuModule,
   MatIconModule,
+  MatSnackBarModule,
   MatButtonModule,
   MatToolbarModule,
   MatInputModule,
@@ -54,6 +55,7 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatToolbarModule,
     MatTabsModule,
+    MatSnackBarModule,
     MatInputModule,
     InfiniteScrollModule
     // in-house modules:

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-interaction-dialog',
@@ -10,14 +11,22 @@ export class InteractionDialogComponent implements OnInit {
   username = '';
   password = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private snackBar: MatSnackBar) {}
 
   ngOnInit() {}
 
   async login() {
-    const response = await this.authService
+    const response: any = await this.authService
       .login(this.username, this.password)
       .toPromise();
-    console.log(JSON.stringify(response, null, 2));
+    if (!response.error) {
+      this.snackBar.open('Successfully logged in!', 'dismiss', {
+        duration: 2000,
+      });
+    } else {
+      this.snackBar.open(response.error, 'dismiss', {
+        duration: 2000,
+      });
+    }
   }
 }
