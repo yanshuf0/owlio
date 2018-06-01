@@ -1,10 +1,9 @@
 #container {
-  min-height: 50vh;
-  min-width: 40vw;
+  width: 65vw;
 }
 
 #interaction {
-  width: inherit;
+  width: inherit - 2em;
   border: 2px dashed hotpink;
   height: 30em;
 }
