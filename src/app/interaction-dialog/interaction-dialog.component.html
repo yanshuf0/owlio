@@ -1,7 +1,19 @@
 <div id="container">
   <mat-toolbar color="primary">
-    <h1>interact</h1>&nbsp;<mat-icon>favorite</mat-icon>
+    <h1>interact</h1>&nbsp;
+    <mat-icon>favorite</mat-icon>
   </mat-toolbar>
   <div id="interaction">
+    <div id="form">
+      <mat-form-field>
+        <input matInput [(ngModel)]="username" type="text" placeholder="username">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput [(ngModel)]="password" type="password" placeholder="password">
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary" (click)="login()">login</button>
+    </div>
   </div>
 </div>

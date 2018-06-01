@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 // third-party components:
 import {
@@ -25,6 +26,8 @@ import { TopNavComponent } from './top-nav/top-nav.component';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { InteractionDialogComponent } from './interaction-dialog/interaction-dialog.component';
+import { AuthService } from './services/auth/auth.service';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   {
@@ -40,6 +43,8 @@ const appRoutes: Routes = [
     // third-party modules:
     BrowserModule.withServerTransition({ appId: 'owlio' }),
     RouterModule.forRoot(appRoutes),
+    FormsModule,
+    HttpClientModule,
     MatGridListModule,
     MatDialogModule,
     MatFormFieldModule,
@@ -53,7 +58,7 @@ const appRoutes: Routes = [
     InfiniteScrollModule
     // in-house modules:
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
   entryComponents: [InteractionDialogComponent]
 })
