@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { AuthDto } from './auth.dto';
 import * as jwt from 'jsonwebtoken';
 import { UserService } from '../user/user.service';
@@ -12,7 +12,7 @@ export class AuthService {
   async login(authDto: AuthDto) {
     const user = await this.userService.findOne(authDto);
     if (!user) {
-      return { error: 'User not found!' };
+      return { error: new HttpException('User not found', HttpStatus.BAD_REQUEST), token: null };
     }
     const match = await bcrpyt.compare(authDto.password, user.password);
     if (match) {
@@ -25,9 +25,9 @@ export class AuthService {
           'secret',
         ),
       };
-      return token;
+      return { error: null, token };
     }
-    return { error: 'Invalid password' };
+    return { error: new HttpException('Invalid password', HttpStatus.BAD_REQUEST), token: null };
   }
 
   async signup(authDto: AuthDto) {

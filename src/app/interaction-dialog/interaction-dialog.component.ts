@@ -11,21 +11,24 @@ export class InteractionDialogComponent implements OnInit {
   username = '';
   password = '';
 
-  constructor(private authService: AuthService, private snackBar: MatSnackBar) {}
+  constructor(
+    private authService: AuthService,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit() {}
 
   async login() {
-    const response: any = await this.authService
-      .login(this.username, this.password)
-      .toPromise();
-    if (!response.error) {
+    try {
+      const response: any = await this.authService
+        .login(this.username, this.password)
+        .toPromise();
       this.snackBar.open('Successfully logged in!', 'dismiss', {
-        duration: 2000,
+        duration: 2000
       });
-    } else {
-      this.snackBar.open(response.error, 'dismiss', {
-        duration: 2000,
+    } catch (e) {
+      this.snackBar.open(e.error.message, 'dismiss', {
+        duration: 2000
       });
     }
   }
