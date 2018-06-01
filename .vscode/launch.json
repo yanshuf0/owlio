@@ -4,7 +4,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Iniciar programa",
+            "name": "debug",
             "program": "${workspaceFolder}\\index.js",
             "outFiles": [
                 "${workspaceFolder}/dist/**/*.js"
